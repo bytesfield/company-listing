@@ -11,6 +11,14 @@ class Rating_value extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'value', 'title'
+    ];
 
     /**
      * Get all of the ratings for the Rating_value

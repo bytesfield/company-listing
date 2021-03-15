@@ -23,6 +23,7 @@ class Rating_valueFactory extends Factory
     {
         return [
             'value' => rand(1, 5),
+            'title' => $this->faker->name,
         ];
     }
 }
