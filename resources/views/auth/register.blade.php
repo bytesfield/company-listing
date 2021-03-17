@@ -1,60 +1,61 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
+ @extends('auth/layout/app')
+ @section('title','Login')
+ @section('content')
 
-        <x-jet-validation-errors class="mb-4" />
-
-        <form method="POST" action="{{ route('register') }}">
-            @csrf
-
-            <div>
-                <x-jet-label for="name" value="{{ __('Name') }}" />
-                <x-jet-input id="name" class="block mt-1 w-full" type="text" name="name" :value="old('name')" required autofocus autocomplete="name" />
+<!-- Welcome Text
+      ========================= -->
+      <div class="col-md-6">
+        <div class="hero-wrap d-flex align-items-center h-100">
+          <div class="hero-mask opacity-8 bg-primary"></div>
+          <div class="hero-bg hero-bg-scroll" style="background-image:url('./images/login-bg.jpg');"></div>
+          <div class="hero-content mx-auto w-100 h-100 d-flex flex-column">
+            <div class="row no-gutters">
+              <div class="col-10 col-lg-9 mx-auto">
+                <div class="logo mt-5 mb-5 mb-md-0"> <a class="d-flex" href="index.html" title="Oxyy"><img src="images/logo-light.png" alt="Oxyy"></a> </div>
+              </div>
             </div>
-
-            <div class="mt-4">
-                <x-jet-label for="email" value="{{ __('Email') }}" />
-                <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
+            <div class="row no-gutters my-auto">
+              <div class="col-10 col-lg-9 mx-auto">
+                <h1 class="text-11 text-white mb-4">Looks like you're new here!</h1>
+                <p class="text-4 text-white line-height-4 mb-5">Sign up with your details to get started</p>
+              </div>
             </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password" value="{{ __('Password') }}" />
-                <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
-            </div>
-
-            <div class="mt-4">
-                <x-jet-label for="password_confirmation" value="{{ __('Confirm Password') }}" />
-                <x-jet-input id="password_confirmation" class="block mt-1 w-full" type="password" name="password_confirmation" required autocomplete="new-password" />
-            </div>
-
-            @if (Laravel\Jetstream\Jetstream::hasTermsAndPrivacyPolicyFeature())
-                <div class="mt-4">
-                    <x-jet-label for="terms">
-                        <div class="flex items-center">
-                            <x-jet-checkbox name="terms" id="terms"/>
-
-                            <div class="ml-2">
-                                {!! __('I agree to the :terms_of_service and :privacy_policy', [
-                                        'terms_of_service' => '<a target="_blank" href="'.route('terms.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Terms of Service').'</a>',
-                                        'privacy_policy' => '<a target="_blank" href="'.route('policy.show').'" class="underline text-sm text-gray-600 hover:text-gray-900">'.__('Privacy Policy').'</a>',
-                                ]) !!}
-                            </div>
-                        </div>
-                    </x-jet-label>
+          </div>
+        </div>
+      </div>
+      <!-- Welcome Text End --> 
+      
+      <!-- Register Form
+      ========================= -->
+      <div class="col-md-6 d-flex align-items-center">
+        <div class="container my-auto py-5">
+          <div class="row">
+            <div class="col-11 col-lg-9 col-xl-8 mx-auto">
+              <h3 class="font-weight-600 mb-4">Sign Up</h3>
+              <form id="registerForm"  method="POST" action="{{ route('register') }}">
+                @csrf
+                <div class="form-group">
+                  <label for="fullName">Full Name</label>
+                  <input type="text" name="name" value="{{ old('name') }}" class="form-control" id="fullName" required placeholder="Enter Your Name">
                 </div>
-            @endif
-
-            <div class="flex items-center justify-end mt-4">
-                <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('login') }}">
-                    {{ __('Already registered?') }}
-                </a>
-
-                <x-jet-button class="ml-4">
-                    {{ __('Register') }}
-                </x-jet-button>
+                <div class="form-group">
+                  <label for="emailAddress">Email Address</label>
+                  <input type="email" name="email" value="{{ old('email') }}" class="form-control" id="emailAddress" required placeholder="Enter Your Email">
+                </div>
+                <div class="form-group">
+                  <label for="loginPassword">Password</label>
+                  <input type="password" name="password" class="form-control" id="loginPassword" required placeholder="Enter Password">
+                </div>
+                <div class="form-group">
+                  <label for="loginPassword">Confirm Password</label>
+                  <input type="password" name="password_confirmation" class="form-control" id="loginPassword" required placeholder="Confirm Password">
+                </div>
+                <button class="btn btn-primary btn-block my-4" type="submit">Sign Up</button>
+              </form>
+              <p class="text-center text-muted mb-0">Already have an account? <a class="btn-link" href="{{ url('login') }}">Log In</a></p>
             </div>
-        </form>
-    </x-jet-authentication-card>
-</x-guest-layout>
+          </div>
+        </div>
+      </div>
+      <!-- Register Form End --> 
+@endsection

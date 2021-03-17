@@ -6,6 +6,7 @@ use App\Traits\JsonResponse;
 use App\Http\Requests\CompanyRequest;
 use App\Interfaces\CompanyInterface;
 use App\Models\Company;
+use App\Models\Rating;
 
 class CompanyRepository extends BaseRepository implements CompanyInterface
 {
@@ -89,6 +90,11 @@ class CompanyRepository extends BaseRepository implements CompanyInterface
         try {
 
             $company = $this->model->find($id);
+            $companyRatingCheck = Rating::where('ratingable_id', $id)->where('ratingable_type', 'App\Models\Company')->first();
+
+            if ($companyRatingCheck) {
+                return $this->error('This company has ratings and can not be deleted');
+            }
             $deleteCompany = $company->delete();
 
             if (!$deleteCompany) {

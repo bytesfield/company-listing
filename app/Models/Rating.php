@@ -13,6 +13,15 @@ class Rating extends Model
     use HasFactory;
 
     /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'user_id', 'rating_value_id'
+    ];
+
+    /**
      * Get the parent ratingable model (Company).
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphTo

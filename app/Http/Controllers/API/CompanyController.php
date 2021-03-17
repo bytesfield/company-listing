@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\API;
 
 use Exception;
 use App\Traits\JsonResponse;
@@ -82,9 +82,6 @@ class CompanyController extends Controller
     {
         $company = $this->companyInterface->deleteCompany($id);
 
-        if ($company) {
-            return $this->success('Company Deleted successfully');
-        }
-        return $this->error('Something went wrong try again');
+        return $company;
     }
 }

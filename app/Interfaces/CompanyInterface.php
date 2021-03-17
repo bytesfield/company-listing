@@ -10,7 +10,7 @@ interface CompanyInterface
      * Get all Companies
      * 
      * @param integer $length
-     * @method  GET api/company
+     * @method  GET api/admin/company
      * @access  public
      */
     public function getAllCompanies(int $length);
@@ -20,7 +20,7 @@ interface CompanyInterface
      * 
      * @param integer $id
      * 
-     * @method  GET api/company/{id}
+     * @method  GET api/admin/company/{id}
      * @access  public
      */
     public function getCompanyById(int $id);
@@ -32,7 +32,7 @@ interface CompanyInterface
      * @param  \App\Http\Requests\CompanyRequest $request
      * @param  integer $id
      * 
-     * @method  POST api/company
+     * @method  POST api/admin/company
      * @access  public
      */
     public function saveCompany(CompanyRequest $request);
@@ -43,7 +43,7 @@ interface CompanyInterface
      * @param  \App\Http\Requests\CompanyRequest $request
      * @param  integer $id
      * 
-     * @method  PUT api/company/{id}
+     * @method  PUT api/admin/company/{id}
      * @access  public
      */
     public function updateCompany(CompanyRequest $request, int $id);
@@ -54,7 +54,7 @@ interface CompanyInterface
      * 
      * @param integer $id
      * 
-     * @method  DELETE  api/company/{id}
+     * @method  DELETE  api/admin/company/{id}
      * @access  public
      */
     public function deleteCompany(int $id);

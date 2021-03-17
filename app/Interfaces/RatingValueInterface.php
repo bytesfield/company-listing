@@ -10,7 +10,7 @@ interface RatingValueInterface
      * Get all Rating Values
      * 
      * @param integer $length
-     * @method  GET api/rating-value
+     * @method  GET api/admin/rating-value
      * @access  public
      */
     public function getRatingValues(int $length);
@@ -20,7 +20,7 @@ interface RatingValueInterface
      * 
      * @param integer $id
      * 
-     * @method  GET api/rating-value/{id}
+     * @method  GET api/admin/rating-value/{id}
      * @access  public
      */
     public function getRatingValueById(int $id);
@@ -32,7 +32,7 @@ interface RatingValueInterface
      * @param  \App\Http\Requests\RatingValueRequest $request
      * @param  integer $id
      * 
-     * @method  POST api/rating-value
+     * @method  POST api/admin/rating-value
      * @access  public
      */
     public function saveRatingValue(RatingValueRequest $request);
@@ -43,7 +43,7 @@ interface RatingValueInterface
      * @param  \App\Http\Requests\RatingValueRequest $request
      * @param  integer $id
      * 
-     * @method  PUT api/rating-value/{id}
+     * @method  PUT api/admin/rating-value/{id}
      * @access  public
      */
     public function updateRatingValue(RatingValueRequest $request, int $id);
@@ -54,7 +54,7 @@ interface RatingValueInterface
      * 
      * @param integer $id
      * 
-     * @method  DELETE  api/rating-value/{id}
+     * @method  DELETE  api/admin/rating-value/{id}
      * @access  public
      */
     public function deleteRatingValue(int $id);

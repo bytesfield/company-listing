@@ -14,11 +14,22 @@
         "@tailwindcss/typography": "^0.3.0",
         "alpinejs": "^2.7.3",
         "autoprefixer": "^10.0.2",
-        "axios": "^0.21",
+        "axios": "^0.21.1",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14",
         "postcss-import": "^12.0.1",
-        "tailwindcss": "^2.0.1"
+        "tailwindcss": "^2.0.1",
+        "vue-loader": "^15.9.6",
+        "vue-template-compiler": "^2.6.12"
+    },
+    "dependencies": {
+        "laravel-vue-pagination": "^2.3.1",
+        "moment": "^2.29.1",
+        "vform": "^1.0.1",
+        "vue": "^2.6.12",
+        "vue-progressbar": "^0.7.5",
+        "vue-router": "^3.5.1",
+        "watch": "^1.0.2"
     }
 }

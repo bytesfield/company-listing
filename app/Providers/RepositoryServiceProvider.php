@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Interfaces\RatingInterface;
 use App\Interfaces\CompanyInterface;
+use App\Repositories\RatingRepository;
 use App\Repositories\CompanyRepository;
 use Illuminate\Support\ServiceProvider;
 use App\Interfaces\RatingValueInterface;
@@ -19,6 +21,7 @@ class RepositoryServiceProvider extends ServiceProvider
     {
         $this->app->bind(CompanyInterface::class, CompanyRepository::class);
         $this->app->bind(RatingValueInterface::class, RatingValueRepository::class);
+        $this->app->bind(RatingInterface::class, RatingRepository::class);
     }
 
     /**

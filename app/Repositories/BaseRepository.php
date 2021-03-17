@@ -93,4 +93,10 @@ class BaseRepository
         $query = $this->getQuery()->find($id);
         return $query->delete();
     }
+
+    public function findModel($model, $id)
+    {
+        $entity = $model::find($id);
+        return $entity;
+    }
 }

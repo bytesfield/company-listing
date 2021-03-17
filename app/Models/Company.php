@@ -29,7 +29,7 @@ class Company extends Model
      *
      * @return \Illuminate\Database\Eloquent\Relations\MorphMany
      */
-    public function rating(): MorphMany
+    public function ratings(): MorphMany
     {
         return $this->morphMany(Rating::class, 'ratingable');
     }

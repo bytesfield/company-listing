@@ -2,8 +2,10 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\RatingValueController;
+use App\Http\Controllers\API\AuthController;
+use App\Http\Controllers\API\RatingController;
+use App\Http\Controllers\API\CompanyController;
+use App\Http\Controllers\API\RatingValueController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +20,10 @@ use App\Http\Controllers\RatingValueController;
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
+});
+Route::group(['prefix' => 'auth'], function () {
+
+    Route::post('login', [AuthController::class, 'login']);
 });
 
 
@@ -34,4 +40,7 @@ Route::group(['prefix' => 'admin'], function () {
     Route::get('rating-value/{id}', [RatingValueController::class, 'show']);
     Route::put('rating-value/{id}', [RatingValueController::class, 'update']);
     Route::delete('rating-value/{id}', [RatingValueController::class, 'destroy']);
+
+    Route::get('company-ratings', [RatingController::class, 'index']);
+    Route::post('rate-company', [RatingController::class, 'rateCompany']);
 });
